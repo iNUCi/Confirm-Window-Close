@@ -1,11 +1,11 @@
 {
-	"geode": "3.4.0",
+	"geode": "4.5.0",
 	"gd": {
 		"win": "*"
 	},
 	"id": "thesillydoggo.confirm_window_close",
 	"name": "Confirm Window Close",
-	"version": "v1.0.0",
+	"version": "v1.1.0",
 	"developer": "TheSillyDoggo",
 	"description": "nyaa",
 	"settings": {

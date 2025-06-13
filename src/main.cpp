@@ -43,7 +43,7 @@ LRESULT CALLBACK CustomWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam
 			return 0;
 		}
 
-		if (Loader::get()->getGameVersion() == "2.206")
+		if (Loader::get()->getGameVersion() >= "2.206")
 		{
 			alertPopup = createQuickPopup("Quit Game", "Are you sure you want to <cr>quit</c>?", "Cancel", "Yes", [](FLAlertLayer* alert, bool right)
 			{
@@ -79,9 +79,9 @@ $on_mod(Loaded)
 
 class $modify (CCEGLView)
 {
-	void toggleFullScreen(bool fullscreen, bool borderless)
+	void toggleFullScreen(bool fullscreen, bool borderless, bool fix)
 	{
-		CCEGLView::toggleFullScreen(fullscreen, borderless);
+		CCEGLView::toggleFullScreen(fullscreen, borderless, fix);
 
 		Loader::get()->queueInMainThread([]{
 			refreshHWNDhook();
