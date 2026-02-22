@@ -37,7 +37,7 @@ LRESULT CALLBACK CustomWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam
 		{
 			if (MessageBoxW(getWindowHandle(), L"Are you sure you want to quit?", L"Quit Game", MB_YESNO | MB_ICONWARNING) == IDYES)
 			{
-				utils::game::exit();
+				utils::game::exit(true);
 			}
 
 			return 0;
@@ -51,7 +51,7 @@ LRESULT CALLBACK CustomWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam
 
 				if (right)
 				{
-					utils::game::exit();
+					utils::game::exit(true);
 				}
 			});
 		}
