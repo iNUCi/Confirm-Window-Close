@@ -79,6 +79,7 @@ $on_mod(Loaded)
 
 class $modify (CCEGLView)
 {
+	#if GEODE_COMP_GD_VERSION >= 22070
 	void toggleFullScreen(bool fullscreen, bool borderless, bool fix)
 	{
 		CCEGLView::toggleFullScreen(fullscreen, borderless, fix);
@@ -87,4 +88,15 @@ class $modify (CCEGLView)
 			refreshHWNDhook();
 		});
 	}
+	#endif
+	#if GEODE_COMP_GD_VERSION <= 2206
+	void toggleFullScreen(bool fullscreen, bool borderless)
+	{
+		CCEGLView::toggleFullScreen(fullscreen, borderless);
+
+		Loader::get()->queueInMainThread([]{
+			refreshHWNDhook();
+		});
+	}
+	#endif
 };
